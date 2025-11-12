@@ -3,150 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дизайн интерьера</title>
+    <title>Функции ИИ Инструментов</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/13.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+
+        .card {
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .icon-circle {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin: 0.25rem;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .number-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
     </style>
 </head>
 <body class="font-sans">
-    <!-- Навигация -->
-    <nav class="fixed w-full bg-black bg-opacity-50 text-white z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold">DESIGN STUDIO</div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#services" class="hover:text-gray-300">Услуги</a>
-                <a href="#portfolio" class="hover:text-gray-300">Портфолио</a>
-                <a href="#contact" class="hover:text-gray-300">Контакты</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Главный баннер -->
-    <section class="hero flex items-center">
-        <div class="container mx-auto px-6 text-center text-white">
-            <h1 class="text-5xl font-bold mb-4">Дизайн и ремонт помещений</h1>
-            <p class="text-xl mb-8">От концепции до реализации</p>
-            <a href="#contact" class="bg-white text-black px-8 py-3 rounded-lg hover:bg-gray-200 transition">
-                Обсудить проект
-            </a>
-        </div>
-    </section>
-
-    <!-- Услуги -->
-    <section id="services" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16">Наши услуги</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <img src="images/9.jpg" alt="Дизайн интерьера квартир" class="w-full h-64 object-cover mb-6 rounded">
-                    <h3 class="text-2xl font-bold mb-4">Дизайн и ремонт жилых помещений</h3>
-                    <ul class="space-y-3 text-gray-600">
-                        <li>• Разработка планировочных решений</li>
-                        <li>• Создание уникального дизайн-проекта</li>
-                        <li>• Подбор материалов и мебели</li>
-                        <li>• Ремонтно-отделочные работы</li>
-                        <li>• Авторский надзор</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <img src="images/1.jpg" alt="Дизайн баров" class="w-full h-64 object-cover mb-6 rounded">
-                    <h3 class="text-2xl font-bold mb-4">Дизайн и ремонт баров и ресторанов</h3>
-                    <ul class="space-y-3 text-gray-600">
-                        <li>• Проектирование коммерческих пространств</li>
-                        <li>• Разработка зонирования</li>
-                        <li>• Создание уникального стиля</li>
-                        <li>• Комплексный ремонт помещений</li>
-                        <li>• Подбор оборудования и мебели</li>
-                    </ul>
+    <!-- Hero Section -->
+    <div class="hero-gradient text-white py-20 px-6">
+        <div class="container mx-auto max-w-6xl text-center">
+            <div class="animate-fade-in">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    <i class="fas fa-robot mr-4"></i>Функции ИИ Инструментов
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">
+                    Полный гид по возможностям современного искусственного интеллекта
+                </p>
+                <div class="flex justify-center space-x-4 text-lg">
+                    <span class="bg-white bg-opacity-20 px-6 py-2 rounded-full">
+                        <i class="fas fa-check-circle mr-2"></i>6 категорий
+                    </span>
+                    <span class="bg-white bg-opacity-20 px-6 py-2 rounded-full">
+                        <i class="fas fa-star mr-2"></i>Все возможности
+                    </span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Портфолио -->
-    <section id="portfolio" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16">Наши проекты</h2>
-            <div class="mb-12">
-                <div class="max-w-3xl mx-auto">
-                    <div class="flex items-center justify-center mb-8">
-                        <img src="images/4.jpg" alt="Wine Folly logo" class="h-24 object-contain">
+    <!-- Main Content -->
+    <div class="container mx-auto max-w-7xl px-6 py-16">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Card 1: Диалог и получение ответов -->
+            <div class="card rounded-2xl p-8 shadow-xl relative">
+                <div class="number-badge">1</div>
+                <div class="icon-circle" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <i class="fas fa-comments text-white text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                    Диалог и получение ответов
+                </h3>
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                    Базовое взаимодействие с ИИ через текстовый интерфейс
+                </p>
+                <div class="space-y-3 mb-4">
+                    <div class="flex items-start">
+                        <i class="fas fa-message text-purple-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Стандартные чаты</span>
                     </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-8 mb-12">
-                        <div>
-                            <img src="images/1.jpg" alt="Витрины" class="w-full h-64 object-cover rounded-lg shadow-xl mb-4">
-                            <p class="text-gray-600">Современные витрины с интегрированной LED подсветкой</p>
-                        </div>
-                        <div>
-                            <img src="images/2.jpg" alt="Зона отдыха" class="w-full h-64 object-cover rounded-lg shadow-xl mb-4">
-                            <p class="text-gray-600">Уютная зона отдыха с дизайнерской мебелью</p>
-                        </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-globe text-purple-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Поиск в интернете</span>
                     </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-bolt text-purple-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Быстрые ответы</span>
+                    </div>
+                </div>
+                <div class="mt-6 flex flex-wrap">
+                    <span class="feature-tag">ChatGPT</span>
+                    <span class="feature-tag">Claude</span>
+                    <span class="feature-tag">Perplexity</span>
+                </div>
+            </div>
 
-                    <div class="grid md:grid-cols-3 gap-6 mb-8">
-                        <img src="images/10.jpg" alt="Детали интерьера 1" class="w-full h-48 object-cover rounded-lg shadow-lg">
-                        <img src="images/11.jpg" alt="Детали интерьера 2" class="w-full h-48 object-cover rounded-lg shadow-lg">
-                        <img src="images/12.jpg" alt="Детали интерьера 3" class="w-full h-48 object-cover rounded-lg shadow-lg">
+            <!-- Card 2: Глубокое исследование -->
+            <div class="card rounded-2xl p-8 shadow-xl relative">
+                <div class="number-badge">2</div>
+                <div class="icon-circle" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <i class="fas fa-chart-line text-white text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                    Глубокое исследование
+                </h3>
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                    Анализ данных и создание детальных отчетов
+                </p>
+                <div class="space-y-3 mb-4">
+                    <div class="flex items-start">
+                        <i class="fas fa-file-alt text-pink-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Создание отчетов</span>
                     </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-chart-pie text-pink-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Визуализация данных</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-magnifying-glass text-pink-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Глубокий анализ</span>
+                    </div>
+                </div>
+                <div class="mt-6 flex flex-wrap">
+                    <span class="feature-tag">Perplexity Pro</span>
+                    <span class="feature-tag">Claude Projects</span>
+                </div>
+            </div>
 
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
-                        <h4 class="text-xl font-bold mb-4">О проекте</h4>
-                        <p class="text-gray-600 mb-4">Комплексный дизайн интерьера винного бара в современном стиле. Проект включает:</p>
-                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
-                            <li>Разработку уникальной системы хранения вин с подсветкой</li>
-                            <li>Дизайн зоны отдыха с авторской мебелью</li>
-                            <li>Создание фирменных элементов интерьера</li>
-                            <li>Подбор декоративных элементов и освещения</li>
-                        </ul>
+            <!-- Card 3: Создание артефакта -->
+            <div class="card rounded-2xl p-8 shadow-xl relative">
+                <div class="number-badge">3</div>
+                <div class="icon-circle" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <i class="fas fa-file-code text-white text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                    Создание артефакта
+                </h3>
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                    Генерация готовых к использованию материалов
+                </p>
+                <div class="space-y-3 mb-4">
+                    <div class="flex items-start">
+                        <i class="fas fa-presentation text-blue-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Презентации</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-file-pdf text-blue-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Отчеты и документы</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-laptop-code text-blue-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Приложения</span>
+                    </div>
+                </div>
+                <div class="mt-6 flex flex-wrap">
+                    <span class="feature-tag">Claude Artifacts</span>
+                    <span class="feature-tag">Gamma</span>
+                </div>
+            </div>
+
+            <!-- Card 4: Создание ассистента -->
+            <div class="card rounded-2xl p-8 shadow-xl relative">
+                <div class="number-badge">4</div>
+                <div class="icon-circle" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    <i class="fas fa-user-robot text-white text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                    Создание ассистента
+                </h3>
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                    Персонализированный ИИ-помощник для ваших задач
+                </p>
+                <div class="space-y-3 mb-4">
+                    <div class="flex items-start">
+                        <i class="fas fa-cog text-orange-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Системный промпт</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-database text-orange-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">База знаний</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-window-maximize text-orange-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Пользовательский интерфейс</span>
+                    </div>
+                </div>
+                <div class="mt-6 flex flex-wrap">
+                    <span class="feature-tag">GPTs</span>
+                    <span class="feature-tag">Custom Bots</span>
+                </div>
+            </div>
+
+            <!-- Card 5: Создание агента -->
+            <div class="card rounded-2xl p-8 shadow-xl relative">
+                <div class="number-badge">5</div>
+                <div class="icon-circle" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    <i class="fas fa-network-wired text-gray-700 text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                    Создание агента
+                </h3>
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                    Автономный ИИ с интеграциями и доставкой
+                </p>
+                <div class="space-y-3 mb-4">
+                    <div class="flex items-start">
+                        <i class="fas fa-calendar text-teal-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Календарь, почта, диск</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-robot text-teal-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Ассистент + интеграции</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-paper-plane text-teal-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Telegram, email, web</span>
+                    </div>
+                </div>
+                <div class="mt-6 flex flex-wrap">
+                    <span class="feature-tag">Make.com</span>
+                    <span class="feature-tag">Zapier</span>
+                    <span class="feature-tag">n8n</span>
+                </div>
+            </div>
+
+            <!-- Card 6: Создание мультимедиа -->
+            <div class="card rounded-2xl p-8 shadow-xl relative">
+                <div class="number-badge">6</div>
+                <div class="icon-circle" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                    <i class="fas fa-photo-film text-orange-600 text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                    Создание мультимедиа
+                </h3>
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                    Генерация изображений, видео и аудио контента
+                </p>
+                <div class="space-y-3 mb-4">
+                    <div class="flex items-start">
+                        <i class="fas fa-image text-orange-600 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Картинки</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-video text-orange-600 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Видео</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-music text-orange-600 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Аудио</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-display text-orange-600 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Презентации</span>
+                    </div>
+                </div>
+                <div class="mt-6 flex flex-wrap">
+                    <span class="feature-tag">DALL-E</span>
+                    <span class="feature-tag">Midjourney</span>
+                    <span class="feature-tag">Runway</span>
+                    <span class="feature-tag">ElevenLabs</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Info Section -->
+        <div class="mt-16 text-center">
+            <div class="card rounded-2xl p-12 shadow-xl">
+                <h2 class="text-3xl font-bold mb-6 gradient-text">
+                    Эволюция ИИ-инструментов
+                </h2>
+                <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mx-auto mb-8">
+                    От простого диалога до создания полноценных автономных агентов — современный ИИ предлагает 
+                    широкий спектр возможностей. Каждый уровень открывает новые горизонты для автоматизации, 
+                    креативности и продуктивности.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 text-sm">
+                    <div class="flex items-center space-x-2 bg-purple-50 px-4 py-2 rounded-lg">
+                        <i class="fas fa-layer-group text-purple-600"></i>
+                        <span class="text-gray-700">От простого к сложному</span>
+                    </div>
+                    <div class="flex items-center space-x-2 bg-blue-50 px-4 py-2 rounded-lg">
+                        <i class="fas fa-rocket text-blue-600"></i>
+                        <span class="text-gray-700">Постоянное развитие</span>
+                    </div>
+                    <div class="flex items-center space-x-2 bg-pink-50 px-4 py-2 rounded-lg">
+                        <i class="fas fa-lightbulb text-pink-600"></i>
+                        <span class="text-gray-700">Бесконечные возможности</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Контакты -->
-    <section id="contact" class="py-20 bg-gray-100">
+    <!-- Footer -->
+    <footer class="text-white py-8 text-center">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16">Связаться с нами</h2>
-            <div class="max-w-lg mx-auto">
-                <form class="space-y-6">
-                    <div>
-                        <label class="block mb-2">Ваше имя</label>
-                        <input type="text" class="w-full p-3 border rounded">
-                    </div>
-                    <div>
-                        <label class="block mb-2">Телефон</label>
-                        <input type="tel" class="w-full p-3 border rounded">
-                    </div>
-                    <div>
-                        <label class="block mb-2">Сообщение</label>
-                        <textarea class="w-full p-3 border rounded h-32"></textarea>
-                    </div>
-                    <button class="w-full bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition">
-                        Отправить
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Футер -->
-    <footer class="bg-black text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>© 2024 Design Studio. Все права защищены.</p>
-            <div class="mt-4">
-                <p>Телефон: +7 (999) 123-45-67</p>
-                <p>Email: info@designstudio.ru</p>
-            </div>
+            <p class="text-lg opacity-90">
+                <i class="fas fa-brain mr-2"></i>
+                Путеводитель по функциям ИИ-инструментов
+            </p>
+            <p class="mt-2 opacity-75">© 2025 | Создано с помощью искусственного интеллекта</p>
         </div>
     </footer>
+
+    <script>
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach((card) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
