@@ -1,152 +1,305 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дизайн интерьера</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <style>
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/13.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-        }
-    </style>
-</head>
-<body class="font-sans">
-    <!-- Навигация -->
-    <nav class="fixed w-full bg-black bg-opacity-50 text-white z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold">DESIGN STUDIO</div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#services" class="hover:text-gray-300">Услуги</a>
-                <a href="#portfolio" class="hover:text-gray-300">Портфолио</a>
-                <a href="#contact" class="hover:text-gray-300">Контакты</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Главный баннер -->
-    <section class="hero flex items-center">
-        <div class="container mx-auto px-6 text-center text-white">
-            <h1 class="text-5xl font-bold mb-4">Дизайн и ремонт помещений</h1>
-            <p class="text-xl mb-8">От концепции до реализации</p>
-            <a href="#contact" class="bg-white text-black px-8 py-3 rounded-lg hover:bg-gray-200 transition">
-                Обсудить проект
-            </a>
-        </div>
-    </section>
-
-    <!-- Услуги -->
-    <section id="services" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16">Наши услуги</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <img src="images/9.jpg" alt="Дизайн интерьера квартир" class="w-full h-64 object-cover mb-6 rounded">
-                    <h3 class="text-2xl font-bold mb-4">Дизайн и ремонт жилых помещений</h3>
-                    <ul class="space-y-3 text-gray-600">
-                        <li>• Разработка планировочных решений</li>
-                        <li>• Создание уникального дизайн-проекта</li>
-                        <li>• Подбор материалов и мебели</li>
-                        <li>• Ремонтно-отделочные работы</li>
-                        <li>• Авторский надзор</li>
-                    </ul>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Экосистема AI-инструментов</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+        <style>
+            .hero {
+                position: relative;
+                height: 85vh;
+                background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.75), rgba(79, 70, 229, 0.85)), linear-gradient(135deg, rgba(13, 17, 23, 0.9), rgba(30, 64, 175, 0.9));
+                color: #f8fafc;
+            }
+            .hero::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: url('images/5.jpeg') center/cover no-repeat;
+                opacity: 0.12;
+                mix-blend-mode: screen;
+            }
+            .hero-content {
+                position: relative;
+                z-index: 1;
+            }
+            .section-title {
+                position: relative;
+                display: inline-block;
+            }
+            .section-title::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -12px;
+                width: 60px;
+                height: 4px;
+                background: linear-gradient(90deg, #6366f1, #38bdf8);
+                border-radius: 9999px;
+            }
+            .glass-card {
+                background: rgba(15, 23, 42, 0.88);
+                color: #e2e8f0;
+                border-radius: 1rem;
+                box-shadow: 0 25px 50px -12px rgba(30, 64, 175, 0.25);
+                border: 1px solid rgba(148, 163, 184, 0.2);
+                backdrop-filter: blur(14px);
+            }
+            .icon-ring {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(56, 189, 248, 0.15));
+                border: 1px solid rgba(99, 102, 241, 0.5);
+                color: #c7d2fe;
+            }
+            .roadmap::before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: linear-gradient(180deg, rgba(99, 102, 241, 0), rgba(99, 102, 241, 0.4), rgba(56, 189, 248, 0));
+            }
+            @media (max-width: 768px) {
+                .roadmap::before {
+                    left: 24px;
+                }
+            }
+        </style>
+    </head>
+    <body class="bg-slate-950 text-slate-100">
+        <!-- Навигация -->
+        <nav class="fixed w-full bg-slate-950 bg-opacity-80 backdrop-filter backdrop-blur-lg text-white z-50 border-b border-slate-800">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="text-2xl font-semibold tracking-wide">AI Capability Map</div>
+                <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest text-slate-300">
+                    <a href="#dialog" class="hover:text-white transition">Диалог</a>
+                    <a href="#research" class="hover:text-white transition">Исследование</a>
+                    <a href="#artifact" class="hover:text-white transition">Артефакты</a>
+                    <a href="#assistant" class="hover:text-white transition">Ассистенты</a>
+                    <a href="#agent" class="hover:text-white transition">Агенты</a>
+                    <a href="#multimedia" class="hover:text-white transition">Мультимедиа</a>
                 </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <img src="images/1.jpg" alt="Дизайн баров" class="w-full h-64 object-cover mb-6 rounded">
-                    <h3 class="text-2xl font-bold mb-4">Дизайн и ремонт баров и ресторанов</h3>
-                    <ul class="space-y-3 text-gray-600">
-                        <li>• Проектирование коммерческих пространств</li>
-                        <li>• Разработка зонирования</li>
-                        <li>• Создание уникального стиля</li>
-                        <li>• Комплексный ремонт помещений</li>
-                        <li>• Подбор оборудования и мебели</li>
-                    </ul>
+            </div>
+        </nav>
+
+        <!-- Герой -->
+        <section class="hero flex items-center">
+            <div class="hero-content container mx-auto px-6 py-32 md:py-0">
+                <div class="max-w-4xl">
+                    <span class="inline-flex items-center bg-white bg-opacity-10 backdrop-filter backdrop-blur px-4 py-2 rounded-full text-sm uppercase tracking-wider text-slate-200 mb-6">
+                        <i class="fas fa-globe mr-2 text-sky-300"></i> Навигация по возможностям искусственного интеллекта
+                    </span>
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                        Полная карта AI-инструментов для бизнеса и команд
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-200 mb-10">
+                        От быстрых ответов и поиска до построения многошаговых агентов. Поймите, какие продукты нужны, чтобы закрыть ключевые сценарии работы с искусственным интеллектом.
+                    </p>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                        <a href="#structure" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-sky-500 hover:bg-sky-400 text-base font-semibold transition">
+                            Смотреть структуру
+                            <i class="fas fa-arrow-down ml-2"></i>
+                        </a>
+                        <a href="#guide" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white bg-opacity-15 hover:bg-opacity-25 text-base font-semibold transition">
+                            Пошаговый гид
+                            <i class="fas fa-stream ml-2"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Портфолио -->
-    <section id="portfolio" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16">Наши проекты</h2>
-            <div class="mb-12">
-                <div class="max-w-3xl mx-auto">
-                    <div class="flex items-center justify-center mb-8">
-                        <img src="images/4.jpg" alt="Wine Folly logo" class="h-24 object-contain">
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-8 mb-12">
-                        <div>
-                            <img src="images/1.jpg" alt="Витрины" class="w-full h-64 object-cover rounded-lg shadow-xl mb-4">
-                            <p class="text-gray-600">Современные витрины с интегрированной LED подсветкой</p>
+        <!-- Интро -->
+        <section id="structure" class="py-20 bg-slate-950">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-semibold section-title mb-8">Шесть уровней зрелости AI</h2>
+                    <p class="text-lg text-slate-300">
+                        Каждый уровень опирается на предыдущий и добавляет новые способы взаимодействия с данными, людьми и внешними системами. Используйте карту как основу для дорожной карты внедрения искусственного интеллекта.
+                    </p>
+                </div>
+
+                <div class="grid gap-8 md:grid-cols-2">
+                    <article id="dialog" class="glass-card p-8">
+                        <div class="icon-ring mb-6">
+                            <i class="fas fa-comments text-2xl"></i>
                         </div>
-                        <div>
-                            <img src="images/2.jpg" alt="Зона отдыха" class="w-full h-64 object-cover rounded-lg shadow-xl mb-4">
-                            <p class="text-gray-600">Уютная зона отдыха с дизайнерской мебелью</p>
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-3 gap-6 mb-8">
-                        <img src="images/10.jpg" alt="Детали интерьера 1" class="w-full h-48 object-cover rounded-lg shadow-lg">
-                        <img src="images/11.jpg" alt="Детали интерьера 2" class="w-full h-48 object-cover rounded-lg shadow-lg">
-                        <img src="images/12.jpg" alt="Детали интерьера 3" class="w-full h-48 object-cover rounded-lg shadow-lg">
-                    </div>
-
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
-                        <h4 class="text-xl font-bold mb-4">О проекте</h4>
-                        <p class="text-gray-600 mb-4">Комплексный дизайн интерьера винного бара в современном стиле. Проект включает:</p>
-                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
-                            <li>Разработку уникальной системы хранения вин с подсветкой</li>
-                            <li>Дизайн зоны отдыха с авторской мебелью</li>
-                            <li>Создание фирменных элементов интерьера</li>
-                            <li>Подбор декоративных элементов и освещения</li>
+                        <h3 class="text-2xl font-semibold mb-4">Диалог и получение ответов</h3>
+                        <p class="text-slate-300 mb-4">Быстрый доступ к знаниям через текстовые чаты и поисковые системы, дополненные генеративным ИИ.</p>
+                        <ul class="space-y-3 text-slate-300">
+                            <li><i class="fas fa-check text-sky-400 mr-2"></i>Чаты с LLM для консультаций и поддержки</li>
+                            <li><i class="fas fa-check text-sky-400 mr-2"></i>Комбинация с веб-поиском для актуальных ответов</li>
+                            <li><i class="fas fa-check text-sky-400 mr-2"></i>Плагины и расширения для быстрого доступа</li>
                         </ul>
+                    </article>
+
+                    <article id="research" class="glass-card p-8">
+                        <div class="icon-ring mb-6">
+                            <i class="fas fa-search text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Глубокое исследование</h3>
+                        <p class="text-slate-300 mb-4">Многошаговый сбор данных, анализ и формирование выводов с визуализацией результатов.</p>
+                        <ul class="space-y-3 text-slate-300">
+                            <li><i class="fas fa-check text-sky-400 mr-2"></i>Автоматический сбор источников и цитирование</li>
+                            <li><i class="fas fa-check text-sky-400 mr-2"></i>Структура отчётов: вводные, аналитика, выводы</li>
+                            <li><i class="fas fa-check text-sky-400 mr-2"></i>Графики, диаграммы, интерактивные панели</li>
+                        </ul>
+                    </article>
+
+                    <article id="artifact" class="glass-card p-8">
+                        <div class="icon-ring mb-6">
+                            <i class="fas fa-layer-group text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Создание артефакта</h3>
+                        <p class="text-slate-300 mb-4">Автоматизированное производство документов, презентаций, приложений и других итоговых материалов.</p>
+                        <ul class="space-y-3 text-slate-300">
+                            <li><i class="fas fa-check text-sky-400 mr-2"></i>Конструкторы презентаций и отчётов</li>
+                            <li><i class="fas fa-check text-sky-400 mr-2"></i>Генерация кода и прототипов</li>
+                            <li><i class="fas fa-check text-sky-400 mr-2"></i>Автозаполнение шаблонов и бренд-пакетов</li>
+                        </ul>
+                    </article>
+
+                    <article id="assistant" class="glass-card p-8">
+                        <div class="icon-ring mb-6">
+                            <i class="fas fa-robot text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Создание ассистента</h3>
+                        <p class="text-slate-300 mb-4">Настройка собственного помощника с заданным тоном, знаниями и интерфейсом взаимодействия.</p>
+                        <ul class="space-y-3 text-slate-300">
+                            <li><i class="fas fa-check text-sky-400 mr-2"></i>Системные промпты и рольовые инструкции</li>
+                            <li><i class="fas fa-check text-sky-400 mr-2"></i>Подключение базы знаний и FAQ</li>
+                            <li><i class="fas fa-check text-sky-400 mr-2"></i>Веб-виджеты, чат-боты, интеграция на сайте</li>
+                        </ul>
+                    </article>
+
+                    <article id="agent" class="glass-card p-8 md:col-span-2">
+                        <div class="icon-ring mb-6">
+                            <i class="fas fa-project-diagram text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Создание агента</h3>
+                        <p class="text-slate-300 mb-4">Автономные системы, которые выполняют задачи от имени пользователя и взаимодействуют с внешними сервисами.</p>
+                        <div class="grid md:grid-cols-3 gap-4 text-slate-300">
+                            <div>
+                                <h4 class="uppercase text-xs tracking-widest text-slate-400 mb-2">Интеграции</h4>
+                                <p>Календарь, почта, CRM, хранилища файлов, BI-системы.</p>
+                            </div>
+                            <div>
+                                <h4 class="uppercase text-xs tracking-widest text-slate-400 mb-2">Управление задачами</h4>
+                                <p>Планирование, контроль статусов, автоматические уведомления.</p>
+                            </div>
+                            <div>
+                                <h4 class="uppercase text-xs tracking-widest text-slate-400 mb-2">Доставка результата</h4>
+                                <p>Телеграм, email, веб-приложения, внутренние порталы.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article id="multimedia" class="glass-card p-8 md:col-span-2">
+                        <div class="icon-ring mb-6">
+                            <i class="fas fa-photo-video text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Создание мультимедиа</h3>
+                        <p class="text-slate-300 mb-4">Генерация визуального, аудио и интерактивного контента для маркетинга, обучения и прототипирования.</p>
+                        <div class="grid md:grid-cols-3 gap-4 text-slate-300">
+                            <div>
+                                <h4 class="uppercase text-xs tracking-widest text-slate-400 mb-2">Изображения</h4>
+                                <p>Продуктовые рендеры, иллюстрации, дизайн-прототипы.</p>
+                            </div>
+                            <div>
+                                <h4 class="uppercase text-xs tracking-widest text-slate-400 mb-2">Видео и аудио</h4>
+                                <p>Сценарии, озвучка, синтез голоса, автоматический монтаж.</p>
+                            </div>
+                            <div>
+                                <h4 class="uppercase text-xs tracking-widest text-slate-400 mb-2">Презентации</h4>
+                                <p>Динамические шаблоны, графические элементы, storytelling.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Пошаговый гид -->
+        <section id="guide" class="relative py-20 bg-slate-900">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-semibold section-title mb-8">Как выбрать следующий шаг</h2>
+                    <p class="text-lg text-slate-300">
+                        Оцените текущую зрелость процессов и выберите приоритетные сценарии. Сфокусируйтесь на быстрых победах, чтобы создать импульс, и постепенно расширяйте стек технологий.
+                    </p>
+                </div>
+
+                <div class="relative roadmap">
+                    <div class="space-y-12 md:space-y-20 relative">
+                        <div class="md:flex md:items-center md:space-x-10">
+                            <div class="md:w-5/12">
+                                <h3 class="text-xl font-semibold text-sky-300 mb-3">1. Определите базовые кейсы</h3>
+                                <p class="text-slate-300">Выберите команды, которым нужна оперативная поддержка — саппорт, продажи, HR. Запустите чат-решение и подключите актуальный поиск.</p>
+                            </div>
+                            <div class="md:w-7/12 glass-card p-6">
+                                <p class="text-slate-200">Ключевые показатели: скорость ответа, удовлетворенность пользователей, снижение нагрузки на экспертов.</p>
+                            </div>
+                        </div>
+
+                        <div class="md:flex md:flex-row-reverse md:items-center md:space-x-reverse md:space-x-10">
+                            <div class="md:w-5/12">
+                                <h3 class="text-xl font-semibold text-sky-300 mb-3">2. Постройте исследовательский контур</h3>
+                                <p class="text-slate-300">Добавьте инструменты, которые собирают и анализируют данные, создают отчеты и визуализации. Формализуйте шаблоны и стандарты.</p>
+                            </div>
+                            <div class="md:w-7/12 glass-card p-6">
+                                <p class="text-slate-200">Ключевые показатели: полнота источников, цитирование, повторяемость результата.</p>
+                            </div>
+                        </div>
+
+                        <div class="md:flex md:items-center md:space-x-10">
+                            <div class="md:w-5/12">
+                                <h3 class="text-xl font-semibold text-sky-300 mb-3">3. Автоматизируйте выпуск артефактов</h3>
+                                <p class="text-slate-300">Свяжите исследования с генерацией итоговых документов, презентаций или кодовых прототипов. Настройте ревью и контроль качества.</p>
+                            </div>
+                            <div class="md:w-7/12 glass-card p-6">
+                                <p class="text-slate-200">Ключевые показатели: скорость подготовки материалов, число итераций согласования.</p>
+                            </div>
+                        </div>
+
+                        <div class="md:flex md:flex-row-reverse md:items-center md:space-x-reverse md:space-x-10">
+                            <div class="md:w-5/12">
+                                <h3 class="text-xl font-semibold text-sky-300 mb-3">4. Разверните ассистентов и агентов</h3>
+                                <p class="text-slate-300">Сформируйте внутренние ассистенты, подключите базу знаний и добавьте автоматические действия: планирование, уведомления, интеграции с API.</p>
+                            </div>
+                            <div class="md:w-7/12 glass-card p-6">
+                                <p class="text-slate-200">Ключевые показатели: доля автоматизированных задач, время до выполнения поручения.</p>
+                            </div>
+                        </div>
+
+                        <div class="md:flex md:items-center md:space-x-10">
+                            <div class="md:w-5/12">
+                                <h3 class="text-xl font-semibold text-sky-300 mb-3">5. Расширяйте мультимедийные форматы</h3>
+                                <p class="text-slate-300">Добавьте генерацию изображений, видео и аудио, чтобы поддерживать маркетинг, обучение и продажи без привлечения внешних подрядчиков.</p>
+                            </div>
+                            <div class="md:w-7/12 glass-card p-6">
+                                <p class="text-slate-200">Ключевые показатели: время производства, бренд-консистентность, вовлеченность аудитории.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Контакты -->
-    <section id="contact" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16">Связаться с нами</h2>
-            <div class="max-w-lg mx-auto">
-                <form class="space-y-6">
-                    <div>
-                        <label class="block mb-2">Ваше имя</label>
-                        <input type="text" class="w-full p-3 border rounded">
-                    </div>
-                    <div>
-                        <label class="block mb-2">Телефон</label>
-                        <input type="tel" class="w-full p-3 border rounded">
-                    </div>
-                    <div>
-                        <label class="block mb-2">Сообщение</label>
-                        <textarea class="w-full p-3 border rounded h-32"></textarea>
-                    </div>
-                    <button class="w-full bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition">
-                        Отправить
-                    </button>
-                </form>
+        <!-- Футер -->
+        <footer class="bg-slate-950 border-t border-slate-800 py-10">
+            <div class="container mx-auto px-6 text-center text-slate-400">
+                <p class="text-sm uppercase tracking-[0.3em] mb-4">AI Capability Map</p>
+                <p class="text-slate-500">© 2025. Навигатор по инструментам искусственного интеллекта.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Футер -->
-    <footer class="bg-black text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>© 2024 Design Studio. Все права защищены.</p>
-            <div class="mt-4">
-                <p>Телефон: +7 (999) 123-45-67</p>
-                <p>Email: info@designstudio.ru</p>
-            </div>
-        </div>
-    </footer>
-</body>
+        </footer>
+    </body>
 </html>
